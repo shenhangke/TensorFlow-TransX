@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/shenhangke/Project/C++/untitled/library.cpp
+cstring
+-
+cstdio
+-
+cstdlib
+-
+cmath
+-
+ctime
+-
+string
+-
+algorithm
+-
+

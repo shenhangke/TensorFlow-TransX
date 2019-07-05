@@ -6,12 +6,19 @@
 #include <string>
 #include <algorithm>
 
+#define EXPORT __attribute__((visibility("default")))
+
 using namespace std;
 
 string inPath = "./data/";
 int bernFlag = 0;
 
-extern "C"
+
+/*
+ * set the input path
+ * */
+EXPORT
+extern "C"  //tell the compiler that you should compile as c not c++
 void setInPath(char *path) {
     int len = strlen(path);
     inPath = "";
@@ -54,6 +61,7 @@ int relationTotal, entityTotal, tripleTotal;
 int *freqRel, *freqEnt;
 float *left_mean, *right_mean;
 
+EXPORT
 extern "C"
 void init() {
 
@@ -136,21 +144,25 @@ void init() {
 	}
 }
 
+EXPORT
 extern "C"
 int getEntityTotal() {
 	return entityTotal;
 }
 
+EXPORT
 extern "C"
 int getRelationTotal() {
 	return relationTotal;
 }
 
+EXPORT
 extern "C"
 int getTripleTotal() {
 	return tripleTotal;
 }
 
+EXPORT
 extern "C"
 void setBernFlag(int flag = 0) {
 	bernFlag = flag;
@@ -235,6 +247,7 @@ int corrupt_tail(int id, int t, int r) {
 	return tmp + lef - ll + 1;
 }
 
+EXPORT
 extern "C"
 void getBatch(int *ph, int *pt, int *pr, int *nh, int *nt, int *nr, int batchSize, int id = 0) {
 	int i, j;

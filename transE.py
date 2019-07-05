@@ -6,15 +6,18 @@ import time
 import datetime
 import ctypes
 
+# 由于在底层的c++库中，所有的字符串都是用的ansii的编码方式，在python2.7中也是默认这个方式，但是到了python3，默认变成了utf
+# 因此，所有有关于底层c++代码库的调用，都需要先转换编码，将编码转化为ansii再做下一步的处理。
+
 ll = ctypes.cdll.LoadLibrary   
-lib = ll("./init.so")
-test_lib = ll("./test.so")
+lib = ll("./libinit.dylib")
+test_lib = ll("./libtest.dylib")
 
 class Config(object):
 
 	def __init__(self):
-		lib.setInPath("./data/FB15K/")
-		test_lib.setInPath("./data/FB15K/")
+		lib.setInPath("./data/FB15K/".encode("ascii"))
+		test_lib.setInPath("./data/FB15K/".encode("ascii"))
 		lib.setBernFlag(0)
 		self.learning_rate = 0.001
 		self.testFlag = False
@@ -128,7 +131,7 @@ def main(_):
 			nt = np.zeros(config.batch_size, dtype = np.int32)
 			nr = np.zeros(config.batch_size, dtype = np.int32)
 
-			ph_addr = ph.__array_interface__['data'][0]
+			ph_addr = ph.__array_interface__['data'][0]  # use this interface return a pointer which point to array
 			pt_addr = pt.__array_interface__['data'][0]
 			pr_addr = pr.__array_interface__['data'][0]
 			nh_addr = nh.__array_interface__['data'][0]
@@ -148,8 +151,8 @@ def main(_):
 						lib.getBatch(ph_addr, pt_addr, pr_addr, nh_addr, nt_addr, nr_addr, config.batch_size)
 						res += train_step(ph, pt, pr, nh, nt, nr)
 						current_step = tf.train.global_step(sess, global_step)
-					print times
-					print res
+					print(times)
+					print(res)
 				saver.save(sess, 'model.vec')
 			else:
 				total = test_lib.getTestTotal()
@@ -161,7 +164,7 @@ def main(_):
 					test_lib.getTailBatch(ph_addr, pt_addr, pr_addr)
 					res = test_step(ph, pt, pr)
 					test_lib.testTail(res.__array_interface__['data'][0])
-					print times
+					print(times)
 					if (times % 50 == 0):
 						test_lib.test()
 				test_lib.test()

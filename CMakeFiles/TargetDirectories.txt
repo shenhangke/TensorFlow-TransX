@@ -1,0 +1,4 @@
+/Users/shenhangke/Project/python/transE/CMakeFiles/rebuild_cache.dir
+/Users/shenhangke/Project/python/transE/CMakeFiles/edit_cache.dir
+/Users/shenhangke/Project/python/transE/CMakeFiles/test.dir
+/Users/shenhangke/Project/python/transE/CMakeFiles/init.dir

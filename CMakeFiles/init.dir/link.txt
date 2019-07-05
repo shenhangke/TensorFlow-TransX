@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -dynamiclib -Wl,-headerpad_max_install_names  -o libinit.dylib -install_name @rpath/libinit.dylib CMakeFiles/init.dir/library.cpp.o 
