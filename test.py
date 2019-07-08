@@ -8,14 +8,18 @@
  
 '''
 
-import ctypes
+import sys
 
-ll = ctypes.cdll.LoadLibrary
+try:
+    from pyspark import SparkContext
+    from pyspark import SparkConf
 
-lib = ll("./libinit.dylib")
-lib.setInPath("./data/FB15K/".encode("ascii"))
-lib.setBernFlag(0)
+    print("Successfully imported Spark Modules")
+except ImportError as e:
+    print("Can not import Spark Modules", e)
+    sys.exit(1)
 
-lib.init()
-print(lib.getRelationTotal())
-print("process finish")
+sc = SparkContext("local", "apple")
+words = sc.parallelize(["scala", "java", "hadoop", "spark", "akka"])
+print(type(words))
+print(words.count())

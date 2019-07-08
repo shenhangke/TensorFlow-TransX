@@ -1,0 +1,4 @@
+/Users/moonknight/Project/python/transe/libMac/CMakeFiles/rebuild_cache.dir
+/Users/moonknight/Project/python/transe/libMac/CMakeFiles/edit_cache.dir
+/Users/moonknight/Project/python/transe/libMac/CMakeFiles/TransElibTest.dir
+/Users/moonknight/Project/python/transe/libMac/CMakeFiles/TransElib.dir

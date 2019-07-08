@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="TransElib"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/moonknight/Project/python/transe/libMac"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/moonknight/Project/python/transe/libMac"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/moonknight/Project/python/transe/libMac"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TransElibTest">
+				<Option output="/Users/moonknight/Project/python/transe/libMac/libTransElibTest.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/moonknight/Project/python/transe/libMac"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 TransElibTest"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TransElibTest/fast">
+				<Option output="/Users/moonknight/Project/python/transe/libMac/libTransElibTest.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/moonknight/Project/python/transe/libMac"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 TransElibTest/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TransElib">
+				<Option output="/Users/moonknight/Project/python/transe/libMac/libTransElib.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/moonknight/Project/python/transe/libMac"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 TransElib"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TransElib/fast">
+				<Option output="/Users/moonknight/Project/python/transe/libMac/libTransElib.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/moonknight/Project/python/transe/libMac"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 TransElib/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/moonknight/Project/python/transe/libMac/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/moonknight/Project/C++/TransElib/init.cpp">
+			<Option target="TransElib"/>
+		</Unit>
+		<Unit filename="/Users/moonknight/Project/C++/TransElib/test.cpp">
+			<Option target="TransElibTest"/>
+		</Unit>
+		<Unit filename="/Users/moonknight/Project/C++/TransElib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
