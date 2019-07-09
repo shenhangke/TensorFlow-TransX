@@ -27,10 +27,10 @@ class Config(object):
         self.L1_flag = True
         self.hidden_size = 100
         self.nbatches = 100
-        self.entity = 0 # 实体数目
-        self.relation = 0 #关系数目
-        self.trainTimes = 1000  #训练次数
-        self.margin = 1.0  #边界值？
+        self.entity = 0  # 实体数目
+        self.relation = 0  # 关系数目
+        self.trainTimes = 1000  # 训练次数
+        self.margin = 1.0  # 边界值？
 
 
 class TransEModel(object):
@@ -41,24 +41,28 @@ class TransEModel(object):
         relation_total = config.relation
         batch_size = config.batch_size
         size = config.hidden_size
-        margin = config.margin  #边界值
+        margin = config.margin  # 边界值
 
-        #一堆占位符
+        # 一堆占位符
 
-        self.pos_h = tf.placeholder(tf.int32, [None])
-        self.pos_t = tf.placeholder(tf.int32, [None])
+        self.pos_h = tf.placeholder(tf.int32, [None])  # 这个应该是正确的三元组中头节点的输入
+        self.pos_t = tf.placeholder(tf.int32, [None])  # 以下对应关系和尾实体
         self.pos_r = tf.placeholder(tf.int32, [None])
 
-        self.neg_h = tf.placeholder(tf.int32, [None])
+        self.neg_h = tf.placeholder(tf.int32, [None])  # 错误实体的头节点输入，以下通用
         self.neg_t = tf.placeholder(tf.int32, [None])
         self.neg_r = tf.placeholder(tf.int32, [None])
 
-
         with tf.name_scope("embedding"):
+            # 创建一个 entity_total*size的变量  前面是行，后面是列
+            # 所以实际上这里是一个维数为size的，有entity_total行的变量
             self.ent_embeddings = tf.get_variable(name="ent_embedding", shape=[entity_total, size],
                                                   initializer=tf.contrib.layers.xavier_initializer(uniform=False))
+            # 同理，这里是关系相关的变量
             self.rel_embeddings = tf.get_variable(name="rel_embedding", shape=[relation_total, size],
                                                   initializer=tf.contrib.layers.xavier_initializer(uniform=False))
+
+            # 这一段是干啥的？
             pos_h_e = tf.nn.embedding_lookup(self.ent_embeddings, self.pos_h)
             pos_t_e = tf.nn.embedding_lookup(self.ent_embeddings, self.pos_t)
             pos_r_e = tf.nn.embedding_lookup(self.rel_embeddings, self.pos_r)
@@ -132,7 +136,7 @@ def main(_):  # 使用缺省值调用这个函数？但是，函数里怎么使�
                     [global_step, trainModel.predict], feed_dict)
                 return predict
 
-            ph = np.zeros(config.batch_size, dtype=np.int32)
+            ph = np.zeros(config.batch_size, dtype=np.int32)  # 正确的实体头，以下同此
             pt = np.zeros(config.batch_size, dtype=np.int32)
             pr = np.zeros(config.batch_size, dtype=np.int32)
             nh = np.zeros(config.batch_size, dtype=np.int32)
