@@ -29,7 +29,7 @@ class Config(object):
         self.nbatches = 100
         self.entity = 0  # 实体数目
         self.relation = 0  # 关系数目
-        self.trainTimes = 1000  # 训练次数
+        self.trainTimes = 100  # 训练次数
         self.margin = 1.0  # 边界值？
 
 
@@ -63,6 +63,8 @@ class TransEModel(object):
                                                   initializer=tf.contrib.layers.xavier_initializer(uniform=False))
 
             # 这一段是干啥的？
+            # 将每次输入进来的实体ID转化一个对应的初始变量
+            # 返回的是对应于输入实体的张量
             pos_h_e = tf.nn.embedding_lookup(self.ent_embeddings, self.pos_h)
             pos_t_e = tf.nn.embedding_lookup(self.ent_embeddings, self.pos_t)
             pos_r_e = tf.nn.embedding_lookup(self.rel_embeddings, self.pos_r)
@@ -71,7 +73,7 @@ class TransEModel(object):
             neg_r_e = tf.nn.embedding_lookup(self.rel_embeddings, self.neg_r)
 
         if config.L1_flag:
-            pos = tf.reduce_sum(abs(pos_h_e + pos_r_e - pos_t_e), 1, keep_dims=True)
+            pos = tf.reduce_sum(abs(pos_h_e + pos_r_e - pos_t_e), 1, keep_dims=True) # 按行求和
             neg = tf.reduce_sum(abs(neg_h_e + neg_r_e - neg_t_e), 1, keep_dims=True)
             self.predict = pos
         else:
@@ -167,6 +169,7 @@ def main(_):  # 使用缺省值调用这个函数？但是，函数里怎么使�
                     print(times)
                     print(res)
                 saver.save(sess, 'model.vec')
+                print(trainModel.ent_embeddings.eval())
             else:
                 total = test_lib.getTestTotal()
                 for times in range(total):
@@ -184,4 +187,4 @@ def main(_):  # 使用缺省值调用这个函数？但是，函数里怎么使�
 
 
 if __name__ == "__main__":
-    tf.app.run()
+    tf.app.run()  # 处理解析main函数，调用main函数

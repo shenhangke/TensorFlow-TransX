@@ -73,7 +73,7 @@ with tf.Session() as sess:
 # 所以在python里面还可以直接用对象+.来直接创建一个对像属性
 
 # 获取由底层c++提供的数据
-
+"""
 ll = ctypes.cdll.LoadLibrary
 lib = ll("./libMac/libTransElib.dylib")
 lib.setInPath("./data/FB15K/".encode("ascii"))
@@ -100,3 +100,32 @@ lib.getBatch.argtypes = [ctypes.c_void_p, ctypes.c_void_p, ctypes.c_void_p, ctyp
 lib.getBatch(ph_addr, pt_addr, pr_addr, nh_addr, nt_addr, nr_addr, batch)
 
 print(ph)
+"""
+
+
+"""
+    所以恢复模型的方法就是首先使用get_variable获取一个名字与shape跟存储的变量一样的变量
+    然后调用restore恢复变量，接下来就可以直接使用这个变量了
+    在使用变量的时候还需要注意变量名前缀
+"""
+ll = ctypes.cdll.LoadLibrary
+lib = ll("./libMac/libTransElib.dylib")
+lib.setInPath("./data/FB15K/".encode("ascii"))
+lib.setBernFlag(0)
+lib.init()
+
+with tf.variable_scope("model"):
+    ent_embeddings = tf.get_variable(name="ent_embedding", shape=[lib.getEntityTotal(), 100])
+# 同理，这里是关系相关的变量
+#rel_embeddings = tf.get_variable(name="rel_embedding")
+saver = tf.train.Saver()
+
+# 从模型文件中还原数据
+with tf.Session() as sess:
+    # saver=tf.train.import_meta_graph("./model.vec.meta")
+    saver.restore(sess, "./model.vec")
+    # sess.run(tf.global_variables_initializer())
+    #sess.run(tf.global_variables_initializer)
+    print(ent_embeddings.eval())
+    firstEntity=tf.nn.embedding_lookup(ent_embeddings,[1])
+    print(sess.run(firstEntity))
